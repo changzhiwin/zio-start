@@ -77,3 +77,10 @@ ZIO.foreachPar(List("zio.dev", "google.com")) { url =>
     ZIOAspect.loggedWith[Chunk[Byte]](file => s"Downloaded $url file with size of ${file.length} bytes")
 }
 ```
+
+# Discover
+
+## ZIO#map / ZIO#flatMap
+- map[B](f: (A) => B)(implicit): ZIO[R, E, B]
+- flatMap[R1 <: R, E1 >: E, B](k: (A) => ZIO[R1, E1, B])(implicit): ZIO[R1, E1, B]
+**Notice**: The difference argment of `f` and `k`.
